@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+  </head>
+
+  <body class="body"> <!-- Тело сайта -->
+
+    <div class="page"> <!-- Страница сайта -->
+
+      <header class="header"> <!-- Заголовок страницы -->
+        <a href="#"><img src="./images/logo.svg" alt="логотип сайта" class="header__logo" /></a>
+        <div class="header__border"></div>
+      </header>
+
+      <section class="profile"> <!-- Профиль -->
+        <img src="./images/kusto.jpg" alt="аватар" class="profile__image">
+        <div class="profile__about">
+          <div class="profile__name-and-button">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit" type="button"></button>
+          </div>
+          <p class="profile__who-is-this">Исследователь океана</p>
+        </div>
+        <button class="profile__add-new" type="button"></button>
+      </section>
+
+    <section class="elements"> <!-- Карточки с городами -->
+      <div class="element">
+        <img src="./images/piter.jpg" alt="Санкт-Петербург" class="element__image">
+        <div class="element__title-and-like">
+          <h2 class="element__title">Санкт-Петербург</h2>
+          <button class="element__like" type="button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/moskow.jpg" alt="Москва" class="element__image">
+        <div class="element__title-and-like">
+          <h2 class="element__title">Москва</h2>
+          <button class="element__like" type="button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/kazan.jpg" alt="Казань" class="element__image">
+        <div class="element__title-and-like">
+          <h2 class="element__title">Казань</h2>
+          <button class="element__like" type="button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/nijniy_novgorod.jpeg" alt="Нижний Новгород" class="element__image">
+        <div class="element__title-and-like">
+          <h2 class="element__title">Нижний Новгород</h2>
+          <button class="element__like" type="button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/ekaterinburg.jpg" alt="Екатеринбург" class="element__image">
+        <div class="element__title-and-like">
+          <h2 class="element__title">Екатеринбург</h2>
+          <button class="element__like" type="button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img src="./images/kaliningrad.jpg" alt="Калининград" class="element__image">
+        <div class="element__title-and-like">
+          <h2 class="element__title">Калининград</h2>
+          <button class="element__like" type="button"></button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer"> <!-- Подвал страницы -->
+      &copy; 2022 Mesto Russia
+    </footer>
+
+  </div> <!-- Конец страницы (page) -->
+
+    <section class="popup"> <!-- popup -->
+      <div class="popup-content">
+        <button class= "popup-content__close" type="button"></button>
+        <h2 class="popup-content__title">Редактировать профиль</h2>
+        <form name = "form-about" action="#" class="popup-content__form-about">
+          <input name = "name" class="popup-content__input popup-content__input_name_name"></input>
+          <input name = "who-is-this"  class="popup-content__input popup-content__input_name_who-is-this"></input>
+          <button class="popup-content__save" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <script src="./scripts/index.js"></script>
+
+  </body>
+</html>

@@ -1,17 +1,14 @@
-# Проект: Место
+# Проектная работа №4 "Mesto"
 
-### Обзор
 
-* Figma
-* Картинки
+* [Ссылка на макет в Figma](https://www.figma.com/file/5S2WSbEFL6awjVWJ0NWL8Q/Sprint-3_-Russia-_-desktop-mobile?node-id=28503%3A0)
 
-**Figma**
+* [Мой готовый проект](https://inemeci.github.io/mesto/)
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
-
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
+В процессе выполнения проекта было использовано:
+* Grid Layout
+* Flexbox
+* JavaScript
+* Создана файловая структура по БЭМ (Nested)
+* Все ссылки и интерактивные элементы имеют состояние наведения
+* Картинки оптимизированы на [https://tinypng.com](https://tinypng.com/), чтобы сайт загружался быстрее

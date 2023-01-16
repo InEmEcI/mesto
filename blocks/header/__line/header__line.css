@@ -1,0 +1,9 @@
+.header__line {
+  margin-top: 41px;
+}
+
+@media screen and (max-width: 966px) {
+  .header__line {
+    margin-top: 31.6px;
+  }
+}

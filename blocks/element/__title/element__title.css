@@ -1,6 +1,6 @@
 .element__title {
   margin: 0;
-  padding: 25px 0 31px 21px;
+  padding: 25px 0 28px 21px;
   max-width: 184px;
   border-radius: 0 0 10px 10px;
   text-align: left;
@@ -11,7 +11,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  /* -webkit-line-clamp: 1;
-  white-space: nowrap;
-  -webkit-box-orient: vertical; */
 }

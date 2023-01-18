@@ -1,16 +1,22 @@
 .profile__name-and-button {
   display: flex;
-  margin-right: 30px;
+  /* justify-content: center; */
+  /* margin-right: 30px; */
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 1050px) {
   .profile__name-and-button {
     margin: 0 auto;
+    padding-right: 38px;
+    padding-left: 32px;
   }
 }
 
-/* @media screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
   .profile__name-and-button {
-    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 33px
   }
-} */
+}

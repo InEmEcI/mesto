@@ -1,28 +1,44 @@
 // const elementItem = document.querySelector('.element');
 // кнопка like
 const likeButtons = document.querySelectorAll('.element__like');
-
 const popupElement = document.querySelector('.popup');
 const profileOpenButton = document.querySelector('.profile__edit');
-const popupCloseElement = popupElement.querySelector('.popup-content__close');
+const popupCloseElement = popupElement.querySelector('.popup__close');
 const profileElement = document.querySelector('.profile');
 let profileName = profileElement.querySelector('.profile__name');
 let profileWhoIsThisElement = profileElement.querySelector('.profile__who-is-this');
-let popupNameElement = popupElement.querySelector('.popup-content__name');
-let popupWhoIsThisElement = popupElement.querySelector('.popup-content__who-is-this');
-const popupContentSaveButton = popupElement.querySelector('.popup-content__save');
+let popupNameElement = popupElement.querySelector('.popup__name');
+let popupWhoIsThisElement = popupElement.querySelector('.popup__who-is-this');
+const popupContentSaveButton = popupElement.querySelector('.popup__save');
+const formElement = document.querySelector('.popup__form-about');
+let nameInput = formElement.querySelector('.popup__input_name_name');
+let jobInput = formElement.querySelector('.popup__input_name_who-is-this');
 
-const popupVisibility = function () {
-  popupElement.classList.toggle('popup_is-opend');
+
+const popupOpen = function () {
+  popupElement.classList.add('popup_opend');
   nameInput.value = profileName.textContent;
   jobInput.value = profileWhoIsThisElement.textContent;
 }
 
-profileOpenButton.addEventListener('click', popupVisibility);
-popupCloseElement.addEventListener('click', popupVisibility);
-const formElement = document.querySelector('.popup-content__form-about');
-let nameInput = formElement.querySelector('.popup-content__input_name_name');
-let jobInput = formElement.querySelector('.popup-content__input_name_who-is-this');
+const popupClose = function () {
+  popupElement.classList.remove('popup_opend');
+}
+
+// const popupVisibility = function () {
+
+//   popupElement.classList.toggle('popup_opend');
+//   nameInput.value = profileName.textContent;
+//   jobInput.value = profileWhoIsThisElement.textContent;
+// }
+
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileWhoIsThisElement.textContent = jobInput.value;
+  popupClose();
+}
+
 
 // for (let i = 0; i < likeButtons.length; i++) {
 //   likeButtons[i].addEventListener('click', function(){
@@ -30,13 +46,7 @@ let jobInput = formElement.querySelector('.popup-content__input_name_who-is-this
 //   })
 // }
 
-function handleFormSubmit(evt) {
-  evt.preventDefault();
-  let nameInputValue = nameInput.value;
-  let jobInputValue = jobInput.value;
-  profileName.textContent = nameInput.value;
-  profileWhoIsThisElement.textContent = jobInput.value;
-}
 
+profileOpenButton.addEventListener('click', popupOpen);
+popupCloseElement.addEventListener('click', popupClose);
 formElement.addEventListener('submit', handleFormSubmit);
-formElement.addEventListener('submit', popupVisibility);

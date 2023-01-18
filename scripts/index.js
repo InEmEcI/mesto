@@ -16,13 +16,13 @@ let jobInput = formElement.querySelector('.popup__input_name_who-is-this');
 
 
 const popupOpen = function () {
-  popupElement.classList.add('popup_opend');
+  popupElement.classList.add('popup_opened');
   nameInput.value = profileName.textContent;
   jobInput.value = profileWhoIsThisElement.textContent;
 }
 
 const popupClose = function () {
-  popupElement.classList.remove('popup_opend');
+  popupElement.classList.remove('popup_opened');
 }
 
 // const popupVisibility = function () {

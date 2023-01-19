@@ -25,5 +25,6 @@
 @media screen and (max-width: 966px) {
   .profile__add-new {
     margin: 32px auto 0 auto;
+    background-size: 16px;
   }
 }

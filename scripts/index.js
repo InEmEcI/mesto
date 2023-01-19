@@ -25,8 +25,11 @@ const popupClose = function () {
   popupElement.classList.remove('popup_opened');
 }
 
-// const popupVisibility = function () {
+const closePopupByClickOnOverlay = function (event) {
+  console.log(event.target, event.currenTarget);
+}
 
+// const popupVisibility = function () {
 //   popupElement.classList.toggle('popup_opend');
 //   nameInput.value = profileName.textContent;
 //   jobInput.value = profileWhoIsThisElement.textContent;
@@ -39,9 +42,9 @@ function handleFormSubmit(evt) {
   popupClose();
 }
 
-
+// ставит / убирает  лайки
 // for (let i = 0; i < likeButtons.length; i++) {
-//   likeButtons[i].addEventListener('click', function(){
+//   likeButtons[i].addEventListener('click', function () {
 //     likeButtons[i].classList.toggle('element__like_active');
 //   })
 // }
@@ -50,3 +53,4 @@ function handleFormSubmit(evt) {
 profileOpenButton.addEventListener('click', popupOpen);
 popupCloseElement.addEventListener('click', popupClose);
 formElement.addEventListener('submit', handleFormSubmit);
+// popupElement.addEventListener('click', closePopupByClickOnOverlay)

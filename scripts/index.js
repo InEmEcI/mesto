@@ -30,7 +30,7 @@ let popupWhoIsThisElement = popupElement.querySelector('.popup__who-is-this');
 // кнопка сохранения информации после редактирования в попапе профиля
 const popupContentSaveButton = popupElement.querySelector('.popup__save');
 
-// popup_new-place-form
+// форма новой карточки
 const popupNewPlaceForm = document.querySelector('.popup_new-place-form');
 
 // попап новой карточки  popup-new-card
@@ -136,6 +136,9 @@ function addNewCard (evt) {
   evt.preventDefault();
   const newCard = [{name: newCardName.value, link: newCardLink.value,}]
   createCard(newCard);
+  // newCardName.value = '';
+  // newCardLink.value = '';
+  popupNewPlaceForm.reset();
   popupClose(evt);
 }
 

@@ -1,1 +1,30 @@
+.popup-card-image {
+  /* display: none; */
+  background-color: rgba(0, 0, 0, 0.9);
+}
 
+.popup-card-image__photo {
+  position: relative;
+  /* width: 75vw; */
+  height: 75vh;
+}
+
+.popup-card-image__figure {
+  position: relative;
+}
+
+.popup-card-image__figcaption {
+  margin-top: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
+
+.popup-card-image_close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}

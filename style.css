@@ -5,7 +5,8 @@
 .popup-card-image__photo {
   position: relative;
   background-size: cover;
-  height: 75vh;
+  height: 100%;
+  width: 100%;
   max-width: 75vh;
   max-height: 75vw;
   object-fit: cover;

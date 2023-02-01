@@ -57,15 +57,29 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="form-place" action="#" class="popup__form-about popup_new-place-form">
+      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about">
         <input type="text" required name="place-name" placeholder="Название"
-          class="popup__input popup__input_type_card_name" />
+          class="popup__input popup__input_type_card-name" />
         <input type="url" required name="photo-link" placeholder="Ссылка на картинку"
           class="popup__input popup__input_type_photo-link" />
-        <button class="popup__save popup_new-card-save" type="submit">Создать</button>
+        <button class="popup__save popup__save_new-card-save" type="submit">Создать</button>
       </form>
     </div>
   </section>
+
+
+<!--
+  <div class="popup__container">
+    <button class="popup__close" type="button"></button>
+    <h2 class="popup__title">Новое место</h2>
+    <form name="form-place" action="#" class="popup__form-about popup__new-place-form">
+      <input type="text" required name="place-name" placeholder="Название"
+        class="popup__input popup__container_input_card_name" />
+      <input type="url" required name="photo-link" placeholder="Ссылка на картинку"
+        class="popup__input popup__input_type_photo-link" />
+      <button class="popup__save popup__container_new-card-save" type="submit">Создать</button>
+    </form>
+  </div> -->
 
   <!-- popup для открытия карточки-->
   <section class="popup popup-card-image">

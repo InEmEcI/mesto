@@ -15,9 +15,9 @@ const popupWhoIsThisElement = popupElement.querySelector('.popup__who-is-this');
 const popupContentSaveButton = popupElement.querySelector('.popup__save');
 
 // НОВАЯ КАРТОЧКА
-const popupNewPlaceForm = document.querySelector('.popup_new-place-form'); // форма новой карточки
+const popupNewPlaceForm = document.querySelector('.popup__form-about_new-form-about'); // форма новой карточки
 const popupNewCardItem = document.querySelector('.popup_new-card'); // попап новой карточки
-const newCardName = document.querySelector('.popup__input_type_card_name'); // имя карточки а попапе
+const newCardName = document.querySelector('.popup__input_type_card-name'); // имя карточки а попапе
 const newCardLink = document.querySelector('.popup__input_type_photo-link') // ссылка на картинку карточки а попапе
 // кнопка сохранения информации в попапе при создании новой карточки
 const popupAddNewCardSaveButton = popupNewCardItem.querySelector('.new-card-save');

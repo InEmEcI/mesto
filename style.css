@@ -1,22 +1,21 @@
-.popup-card-image {
+/* .popup-card-image {
   background-color: rgba(0, 0, 0, 0.9);
-}
+} */
 
-.popup-card-image__photo {
+/* .popup-card-image__photo {
   position: relative;
-  /* background-size: cover; */
   height: 100%;
   width: 100%;
   max-width: 75vh;
   max-height: 75vw;
   object-fit: cover;
-}
+} */
 
-.popup-card-image__figure {
+/* .popup-card-image__figure {
   position: relative;
-}
+} */
 
-.popup-card-image__figcaption {
+/* .popup-card-image__figcaption {
   margin-top: 10px;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -24,9 +23,9 @@
   font-size: 12px;
   line-height: 15px;
   color: #FFFFFF;
-}
+} */
 
-.popup-card-image_close {
+/* .popup-card-image_close {
   position: absolute;
-}
+} */
 

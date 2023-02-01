@@ -1,91 +1,54 @@
 // const elementItem = document.querySelector('.element');
 
-// кнопка like
-const likeButton = document.querySelector('.element__like');
+// ПРОФИЛЬ
+const profileElement = document.querySelector('.profile'); // сам профиль
+const profileName = profileElement.querySelector('.profile__name'); // как зовут (в профиле)
+const profileWhoIsThisElement = profileElement.querySelector('.profile__who-is-this'); // кто он (в профиле)
 
-// попап профиля
-const popupElement = document.querySelector('.popup_profile');
-
-// кнопка открытия попапа в профиле
-const profileOpenButton = document.querySelector('.profile__edit');
-
-// кнопка закрытия попапа в профиле
-const popupCloseElement = popupElement.querySelector('.popup__close');
-
-// профиль
-const profileElement = document.querySelector('.profile');
-
-// как зовут (в профиле)
-const profileName = profileElement.querySelector('.profile__name');
-
-// кто он (в профиле)
-const profileWhoIsThisElement = profileElement.querySelector('.profile__who-is-this');
-
-// как зовут (в попапе)
-const popupNameElement = popupElement.querySelector('.popup__name');
-
-// кто он (в попапе)
-const popupWhoIsThisElement = popupElement.querySelector('.popup__who-is-this');
-
-// кнопка сохранения информации после редактирования в попапе профиля
+// ПОПАП
+const popupElement = document.querySelector('.popup_profile'); // попап профиля
+const profileOpenButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
+const popupCloseElement = popupElement.querySelector('.popup__close'); // кнопка закрытия попапа в профиле
+const popupNameElement = popupElement.querySelector('.popup__name'); // как зовут (в попапе)
+const popupWhoIsThisElement = popupElement.querySelector('.popup__who-is-this'); // кто он (в попапе)
+// кнопка сохранения информации в попапе профиля
 const popupContentSaveButton = popupElement.querySelector('.popup__save');
 
-// форма новой карточки
-const popupNewPlaceForm = document.querySelector('.popup_new-place-form');
-
-// попап новой карточки  popup-new-card
-const popupNewCardItem = document.querySelector('.popup_new-card');
-
-// имя карточки а попапе
-const newCardName = document.querySelector('.popup__input_type_card_name')
-// ссылка на картинку карточки а попапе
-const newCardLink = document.querySelector('.popup__input_type_photo-link')
-
+// НОВАЯ КАРТОЧКА
+const popupNewPlaceForm = document.querySelector('.popup_new-place-form'); // форма новой карточки
+const popupNewCardItem = document.querySelector('.popup_new-card'); // попап новой карточки
+const newCardName = document.querySelector('.popup__input_type_card_name'); // имя карточки а попапе
+const newCardLink = document.querySelector('.popup__input_type_photo-link') // ссылка на картинку карточки а попапе
 // кнопка сохранения информации в попапе при создании новой карточки
 const popupAddNewCardSaveButton = popupNewCardItem.querySelector('.new-card-save');
-
-// кнопка открытия попапа новой карточки
-const popupAddNewCardOpen = document.querySelector('.profile__add-new')
-
+const popupAddNewCardOpen = document.querySelector('.profile__add-new') // кнопка открытия попапа новой карточки
 // кнопка закрытия попапа новой карточки
 const popupAddNewCardCloseButton = popupNewCardItem.querySelector('.popup-new-card_close');
 
-// форма в попапе профиля
-const formElement = document.querySelector('.popup__form-about');
-
-// имя в попапе профиля
-const nameInput = formElement.querySelector('.popup__input_name_name');
-// "кто он" в попапе профиля
-const jobInput = formElement.querySelector('.popup__input_name_who-is-this');
+// ПОПАП ПРОФИЛЬ
+const formElement = document.querySelector('.popup__form-about'); // форма в попапе профиля
+const nameInput = formElement.querySelector('.popup__input_name_name'); // имя в попапе профиля
+const jobInput = formElement.querySelector('.popup__input_name_who-is-this'); // "кто он" в попапе профиля
 
 // закрытие попапа
 const closes = document.querySelectorAll('.popup__close');
 
-// Карточки с городами
+// КАРТОЧКИ
 const cardsSection = document.querySelector('.elements');
-
-// Карточка
-const cardsSectionElement = cardsSection.querySelector('.element');
-
-// изображение в карточке
-const cardImage = document.querySelector('.popup-card-image__figure');
-
+const cardsSectionElement = cardsSection.querySelector('.element'); // Карточка
+const likeButton = document.querySelector('.element__like'); // кнопка like
+const cardImage = document.querySelector('.popup-card-image__figure'); // изображение в карточке
 // карточка с городами в template(шаблоне) (<article class="element">)
 const templateCard = document.querySelector('#template-card').content.querySelector('.element');
+const newCardButton = document.querySelector('.profile__add-new'); // кнопка добавления карточки
+const elementTrashButton = cardsSection.querySelector('.element__trash'); // кнопка удаления карточки
 
-// кнопка добавления карточки
-const newCardButton = document.querySelector('.profile__add-new');
-
-// кнопка удаления карточки
-const elementTrashButton = cardsSection.querySelector('.element__trash');
-
-
+// ПОПАП БОЛЬШОЙ КАРТОЧКИ
 const cardImagePhoto = document.querySelector('.popup-card-image__photo');
-
+// фото карточки в попапе большой карточки
 const popupCardImage = document.querySelector('.popup-card-image');
-
+// подпись фотографии
 const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
-
 
 // закрытие попапа
 const popupClose = function (evt) {
@@ -130,7 +93,6 @@ function createCard(items) {
   })
 }
 
-
 // вставляем карточки из массива initialCards[]
 createCard(initialCards);
 
@@ -156,7 +118,7 @@ function addNewCard(evt) {
   popupClose(evt);
 }
 
-
+// СЛУШАТЕЛИ
 profileOpenButton.addEventListener('click', popupOpen);
 popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);
 formElement.addEventListener('submit', handleFormSubmit);

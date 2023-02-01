@@ -37,5 +37,11 @@
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 
+@import url(../blocks/popup-card-image/popup-card-image.css);
+@import url(../blocks/popup-card-image/__figure/popup-card-image__figure.css);
+@import url(../blocks/popup-card-image/__photo/popup-card-image__photo.css);
+@import url(../blocks/popup-card-image/__figcaption/popup-card-image__figcaption.css);
+@import url(../blocks/popup-card-image/_close/popup-card-image_close.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

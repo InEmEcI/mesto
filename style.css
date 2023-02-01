@@ -1,12 +1,19 @@
 .popup-card-image {
-  /* display: none; */
   background-color: rgba(0, 0, 0, 0.9);
 }
 
 .popup-card-image__photo {
   position: relative;
+  background-size: cover;
   /* width: 75vw; */
   height: 75vh;
+
+}
+
+@media screen and (max-width: 768px) {
+  .popup-card-image__figure {
+    max-width: 75vw;
+  }
 }
 
 .popup-card-image__figure {
@@ -15,7 +22,7 @@
 
 .popup-card-image__figcaption {
   margin-top: 10px;
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

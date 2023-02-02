@@ -1,18 +1,18 @@
 // const elementItem = document.querySelector('.element');
 
 // ПРОФИЛЬ
-const profileElement = document.querySelector('.profile'); // сам профиль
-const profileName = profileElement.querySelector('.profile__name'); // как зовут (в профиле)
-const profileWhoIsThisElement = profileElement.querySelector('.profile__who-is-this'); // кто он (в профиле)
+const profileSection = document.querySelector('.profile'); // сам профиль
+const profileName = profileSection.querySelector('.profile__name'); // как зовут (в профиле)
+const profileWhoIsThisElement = profileSection.querySelector('.profile__who-is-this'); // кто он (в профиле)
 
 // ПОПАП
-const popupElement = document.querySelector('.popup_profile'); // попап профиля
+const popupProfile = document.querySelector('.popup_profile'); // попап профиля
 const profileOpenButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
-const popupCloseElement = popupElement.querySelector('.popup__close'); // кнопка закрытия попапа в профиле
-const popupNameElement = popupElement.querySelector('.popup__name'); // как зовут (в попапе)
-const popupWhoIsThisElement = popupElement.querySelector('.popup__who-is-this'); // кто он (в попапе)
+// const popupClose = popupProfile.querySelector('.popup__close'); // кнопка закрытия попапа в профиле
+const profileNameInput = popupProfile.querySelector('.popup__name'); // как зовут (в попапе)
+const popupWhoIsThisElement = popupProfile.querySelector('.popup__who-is-this'); // кто он (в попапе)
 // кнопка сохранения информации в попапе профиля
-const popupContentSaveButton = popupElement.querySelector('.popup__save');
+const popupContentSaveButton = popupProfile.querySelector('.popup__save');
 
 // НОВАЯ КАРТОЧКА
 const popupNewPlaceForm = document.querySelector('.popup__form-about_new-form-about'); // форма новой карточки
@@ -31,7 +31,7 @@ const nameInput = formElement.querySelector('.popup__input_name_name'); // им�
 const jobInput = formElement.querySelector('.popup__input_name_who-is-this'); // "кто он" в попапе профиля
 
 // закрытие попапа
-const closes = document.querySelectorAll('.popup__close');
+const popupCloseButton = document.querySelectorAll('.popup__close');
 
 // КАРТОЧКИ
 const cardsSection = document.querySelector('.elements');
@@ -50,59 +50,72 @@ const popupCardImage = document.querySelector('.popup-card-image');
 // подпись фотографии
 const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
 
-// закрытие попапа
+// закрытие попапа (крестик)
 const popupClose = function (evt) {
   evt.target.closest('.popup').classList.remove('popup_opened');
 }
 
 // открытие попапа в профиле
 const popupOpen = function () {
-  popupElement.classList.add('popup_opened');
   nameInput.value = profileName.textContent;
   jobInput.value = profileWhoIsThisElement.textContent;
+  openPopup(popupProfile);
 }
 
-// открытие попапа
+// универсальная функция открытия попапа
 const openAddNewCardPopup = function () {
-  popupNewCardItem.classList.add('popup_opened');
+  openPopup(popupNewCardItem);
 }
 
-// функция для добавления карточки
-function createCard(items) {
-  items.forEach((item) => {
-    const card = templateCard.cloneNode(true);
-    card.querySelector('.element__title').textContent = item.name;
-    card.querySelector('.element__image').alt = item.name;
-    card.querySelector('.element__image').src = item.link;
-    card.querySelector('.element__trash').addEventListener('click', () => card.remove());
-    card.querySelector('.element__like').addEventListener('click',
-      function (evt) {
-        evt.target.classList.toggle('element__like_active');
-      });
+const renderCards = (item) => {
+  const cardContainer = createCard(item);
+  cardsSection.prepend(cardContainer);
+}
 
+// универсальная функция открытия попапа
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+
+// универсальная функция закрытия попапа
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
+
+
+// функция для создания карточки
+function createCard({ name, link }) {
+  const card = templateCard.cloneNode(true);
+  const imageCard = card.querySelector('.element__image');
+  card.querySelector('.element__title').textContent = name;
+  imageCard.alt = name;
+  imageCard.src = link;
+  card.querySelector('.element__trash').addEventListener('click', () => card.remove());
+  card.querySelector('.element__like').addEventListener('click',
+    function (evt) {
+      evt.target.classList.toggle('element__like_active');
+    });
   // открытие попапа просмотра карточки
-    card.querySelector('.element__image').addEventListener('click',
-      function () {
-        cardImagePhoto.src = item.link;
-        cardImagePhoto.alt=item.name
-        popupCardImageFigcaption.textContent = item.name;
-        popupCardImage.classList.toggle('popup_opened');
-      })
-
-    cardsSection.prepend(card);
-  })
+  imageCard.addEventListener('click',
+    function () {
+      cardImagePhoto.src = link;
+      cardImagePhoto.alt = name;
+      popupCardImageFigcaption.textContent = name;
+      openPopup(popupCardImage);
+    })
+  return card;
 }
 
-// вставляем карточки из массива initialCards[]
-createCard(initialCards);
+initialCards.forEach(item => renderCards(item));
 
 // вешаем события "закрытие попапа" на каждый крестик
-closes.forEach((closeButton) => {
+popupCloseButton.forEach((closeButton) => {
   closeButton.addEventListener('click', popupClose);
 })
 
 // заполнение полей в профиле
-function handleFormSubmit(evt) {
+function saveProfileChanges(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileWhoIsThisElement.textContent = jobInput.value;
@@ -112,8 +125,8 @@ function handleFormSubmit(evt) {
 // функция добавления новой карточки
 function addNewCard(evt) {
   evt.preventDefault();
-  const newCard = [{ name: newCardName.value, link: newCardLink.value, }];
-  createCard(newCard);
+  const newCard = { name: newCardName.value, link: newCardLink.value, };
+  renderCards(newCard);
   popupNewPlaceForm.reset();
   popupClose(evt);
 }
@@ -121,5 +134,5 @@ function addNewCard(evt) {
 // СЛУШАТЕЛИ
 profileOpenButton.addEventListener('click', popupOpen);
 popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);
-formElement.addEventListener('submit', handleFormSubmit);
+formElement.addEventListener('submit', saveProfileChanges);
 popupNewPlaceForm.addEventListener('submit', addNewCard);

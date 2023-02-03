@@ -1,5 +1,3 @@
-// const elementItem = document.querySelector('.element');
-
 // ПРОФИЛЬ
 const profileSection = document.querySelector('.profile'); // сам профиль
 const profileName = profileSection.querySelector('.profile__name'); // как зовут (в профиле)
@@ -50,10 +48,13 @@ const popupCardImage = document.querySelector('.popup-card-image');
 // подпись фотографии
 const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
 
-// закрытие попапа (крестик)
-const popupClose = function (evt) {
-  evt.target.closest('.popup').classList.remove('popup_opened');
+popupCloseButton.forEach(function (button) {
+  const closeButtonCross = button.closest('.popup');
+  button.addEventListener('click', function () {
+    closePopup(closeButtonCross)
+  });
 }
+);
 
 // открытие попапа в профиле
 const popupOpen = function () {
@@ -82,8 +83,6 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-
-
 // функция для создания карточки
 function createCard({ name, link }) {
   const card = templateCard.cloneNode(true);
@@ -108,11 +107,6 @@ function createCard({ name, link }) {
 }
 
 initialCards.forEach(item => renderCards(item));
-
-// вешаем события "закрытие попапа" на каждый крестик
-popupCloseButton.forEach((closeButton) => {
-  closeButton.addEventListener('click', popupClose);
-})
 
 // заполнение полей в профиле
 function saveProfileChanges(evt) {

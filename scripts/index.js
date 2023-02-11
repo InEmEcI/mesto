@@ -4,6 +4,8 @@ const profileName = profileSection.querySelector('.profile__name'); // как з
 const profileWhoIsThisElement = profileSection.querySelector('.profile__who-is-this'); // кто он (в профиле)
 
 // ПОПАП
+// Все попапы
+const allPopups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_profile'); // попап профиля
 const profileOpenButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
 // const popupClose = popupProfile.querySelector('.popup__close'); // кнопка закрытия попапа в профиле
@@ -82,6 +84,17 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
+
+// закрытие попапа по клику на оверлей
+const closePopupByClickToOverlay = function (evt){
+  if(evt.target === evt.currentTarget){
+    closePopup(evt.currentTarget);
+  }
+}
+
+allPopups.forEach((evt) => {
+  evt.addEventListener('click', closePopupByClickToOverlay);
+});
 
 // функция для создания карточки
 function createCard({ name, link }) {

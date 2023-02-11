@@ -113,7 +113,7 @@ function saveProfileChanges(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileWhoIsThisElement.textContent = jobInput.value;
-  popupClose(evt);
+  closePopup(popupProfile);
 }
 
 // функция добавления новой карточки
@@ -122,7 +122,7 @@ function addNewCard(evt) {
   const newCard = { name: newCardName.value, link: newCardLink.value, };
   renderCards(newCard);
   popupNewPlaceForm.reset();
-  popupClose(evt);
+  closePopup(popupNewCardItem);
 }
 
 // СЛУШАТЕЛИ

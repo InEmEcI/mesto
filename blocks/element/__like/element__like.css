@@ -11,5 +11,10 @@
   background-color: transparent;
   box-sizing: border-box;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.element__like:hover {
+  transform: scale(1.3);
 }
 

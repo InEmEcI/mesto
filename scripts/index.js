@@ -50,14 +50,6 @@ const popupCardImage = document.querySelector('.popup-card-image');
 // подпись фотографии
 const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
 
-popupCloseButton.forEach(function (button) {
-  const closeButtonCross = button.closest('.popup');
-  button.addEventListener('click', function () {
-    closePopup(closeButtonCross)
-  });
-}
-);
-
 // открытие попапа в профиле
 const popupOpen = function () {
   nameInput.value = profileName.textContent;
@@ -75,26 +67,57 @@ const renderCards = (item) => {
   cardsSection.prepend(cardContainer);
 }
 
+popupCloseButton.forEach(function (button) {
+  const closeButtonCross = button.closest('.popup');
+  button.addEventListener('click', function () {
+    closePopup(closeButtonCross)
+  });
+}
+);
+
 // универсальная функция открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByPressToEsc);
 }
 
 // универсальная функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByPressToEsc);
 }
 
 // закрытие попапа по клику на оверлей
-const closePopupByClickToOverlay = function (evt){
-  if(evt.target === evt.currentTarget){
-    closePopup(evt.currentTarget);
-  }
-}
+// const closePopupByClickToOverlay = function (evt){
+//   if(evt.target === evt.currentTarget){
+//     closePopup(evt.currentTarget);
+//   }
+// }
 
-allPopups.forEach((evt) => {
-  evt.addEventListener('click', closePopupByClickToOverlay);
-});
+// allPopups.forEach((evt) => {
+  // evt.addEventListener('click', closePopupByClickToOverlay);
+  // evt.addEventListener('keydown', closePopupByPressToEsc);
+// });
+
+// закрытие попапа по клику на оверлей
+allPopups.forEach((popup) => {
+  popup.addEventListener('mousedown',(evt) => {
+    if(evt.target.classList.contains('popup_opened')){
+      popupNewPlaceForm.reset();
+      closePopup(popup);
+    }
+  })
+})
+
+// закрытие попапа по нажатию на Esc
+function closePopupByPressToEsc(evt){
+  if (evt.key === 'Escape') {
+    const openPopup = document.querySelector('.popup_opened');
+    popupNewPlaceForm.reset();
+    closePopup(openPopup);
+    // closePopup(evt.currentTarget);
+    }
+}
 
 // функция для создания карточки
 function createCard({ name, link }) {
@@ -137,7 +160,6 @@ function addNewCard(evt) {
   popupNewPlaceForm.reset();
   closePopup(popupNewCardItem);
 }
-
 // СЛУШАТЕЛИ
 profileOpenButton.addEventListener('click', popupOpen);
 popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);

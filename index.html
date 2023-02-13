@@ -12,15 +12,17 @@
   <title>Mesto</title>
 </head>
 
-<body class="body"><!-- Тело сайта -->
+<body class="body"> <!-- Тело сайта -->
 
-  <div class="page"><!-- Страница сайта -->
+  <div class="page"> <!-- Страница сайта -->
 
-    <header class="header"><!-- Заголовок страницы -->
+    <header class="header">
+      <!-- Заголовок страницы -->
       <a href="#"><img src="./images/logo.svg" alt="логотип сайта" class="header__logo" /></a>
     </header>
 
-    <section class="profile"><!-- Профиль -->
+    <section class="profile">
+      <!-- Профиль -->
       <img src="./images/kusto.jpg" alt="аватар" class="profile__image" />
       <div class="profile__about">
         <div class="profile__name-and-button">
@@ -32,40 +34,46 @@
       <button class="profile__add-new" type="button"></button>
     </section>
 
-    <section> <!-- Карточки с городами -->
+    <section>
+      <!-- Карточки с городами -->
       <ul class="elements"></ul>
     </section>
 
-    <footer class="footer"><!-- Подвал страницы -->
+    <footer class="footer">
+      <!-- Подвал страницы -->
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
+  </div> <!-- Конец страницы (page) -->
 
-  </div><!-- Конец страницы (page) -->
-
-  <section class="popup popup_profile"> <!-- popup для профиля-->
+  <!-- popup для профиля -->
+  <section class="popup popup_profile">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="form-about" action="#" class="popup__form-about">
-        <input type="text" required placeholder="Имя" name="name" class="popup__input popup__input_name_name" />
+        <input type="text" required placeholder="Имя" name="name" class="popup__input popup__input_name_name"
+          minlength="2" maxlength="40" />
+        <span class="form__item-error form__item-error_filed-name"></span>
         <input type="text" required placeholder="Профессия" name="who-is-this"
-          class="popup__input popup__input_name_who-is-this" />
+          class="popup__input popup__input_name_who-is-this" minlength="2" maxlength="200" />
+
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
   </section>
 
-  <!-- popup для новой карточки-->
+  <!-- popup для новой карточки -->
   <section class="popup popup_new-card">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about">
-        <input type="text" required name="place-name" placeholder="Название"
-          class="popup__input popup__input_type_card-name" />
-        <input type="url" required name="photo-link" placeholder="Ссылка на картинку"
-          class="popup__input popup__input_type_photo-link" />
-        <button class="popup__save popup__save_new-card-save" type="submit">Создать</button>
+      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about" />
+      <input type="text" required name="place-name" placeholder="Название"
+        class="popup__input popup__input_type_card-name" minlength="2" maxlength="30" />
+      <input type="url" required name="photo-link" placeholder="Ссылка на картинку"
+        class="popup__input popup__input_type_photo-link" />
+      <span class="form__item-error form__item-error_filed-link"></span>
+      <button class="popup__save popup__save_new-card-save" type="submit">Создать</button>
       </form>
     </div>
   </section>
@@ -74,12 +82,12 @@
   <section class="popup popup-card-image">
     <figure class="popup-card-image__figure">
       <button class="popup__close" type="button"></button>
-      <img src="#" alt="#" class="popup-card-image__photo">
+      <img src="#" alt="#" class="popup-card-image__photo" />
       <figcaption class="popup-card-image__figcaption"></figcaption>
     </figure>
   </section>
 
-  <template id="template-card">
+  <template id="template-card"> <!-- шаблон карточки -->
     <li class="element">
       <img src="#" alt="#" class="element__image" />
       <button class="element__trash" type="button"></button>
@@ -89,7 +97,6 @@
       </div>
     </li>
   </template>
-
 </body>
 
 </html>

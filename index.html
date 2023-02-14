@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
   <script src="./scripts/cards.js" defer></script>
+  <script src="./scripts/validate.js" defer></script>
   <script src="./scripts/index.js" defer></script>
   <link rel="stylesheet" href="./pages/index.css" />
   <title>Mesto</title>
@@ -50,13 +51,27 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="form-about" action="#" class="popup__form-about">
-        <input type="text" required placeholder="Имя" name="name" class="popup__input popup__input_name_name"
-          minlength="2" maxlength="40" />
-        <span class="form__item-error form__item-error_filed-name"></span>
-        <input type="text" required placeholder="Профессия" name="who-is-this"
-          class="popup__input popup__input_name_who-is-this" minlength="2" maxlength="200" />
-
+      <form name="form-about" action="#" class="popup__form-about popup__form" novalidate>
+        <input
+        type="text"
+        required
+        placeholder="Имя"
+        name="name"
+        class="popup__input popup__input_name_name"
+        minlength="2"
+        maxlength="40"
+        />
+        <span class=""></span>
+        <input
+        type="text"
+        required
+        placeholder="Профессия"
+        name="who-is-this"
+        class="popup__input popup__input_name_who-is-this"
+        minlength="2"
+        maxlength="200"
+        />
+        <span class=""></span>
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
@@ -67,11 +82,23 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about" />
-      <input type="text" required name="place-name" placeholder="Название"
-        class="popup__input popup__input_type_card-name" minlength="2" maxlength="30" />
-      <input type="url" required name="photo-link" placeholder="Ссылка на картинку"
-        class="popup__input popup__input_type_photo-link" />
+      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about popup__form" novalidate/>
+      <input
+      type="text"
+      required
+      name="place-name"
+      placeholder="Название"
+      class="popup__input popup__input_type_card-name"
+      minlength="2"
+      maxlength="30"
+      />
+      <input
+      type="url"
+      required
+      name="photo-link"
+      placeholder="Ссылка на картинку"
+      class="popup__input popup__input_type_photo-link"
+      />
       <span class="form__item-error form__item-error_filed-link"></span>
       <button class="popup__save popup__save_new-card-save" type="submit">Создать</button>
       </form>

@@ -67,6 +67,56 @@ const renderCards = (item) => {
   cardsSection.prepend(cardContainer);
 }
 
+// ФОРМЫ
+const allForms = document.querySelector('.popup__form');
+// input в поле "Имя"
+const formInputName = allForms.querySelector('.popup__input_name_name');
+// input в поле "Кто он"
+const formInputJob = allForms.querySelector('.popup__input_name_who-is-this');
+// input в поле "Название"
+const newPlaceName = allForms.querySelector('.popup__input_type_card-name');
+// input в поле "Ссылка на картинку"
+const newPlaceLink = allForms.querySelector('.popup__input_type_photo-link');
+
+// добавить класс ошибки элементу input
+const showError = (input) => {
+  input.classList.add('popup__input_type_error');
+};
+
+// удалить класс ошибки с элемента input
+const hideError = (input) => {
+  input.classList.remove('popup__input_type_error');
+};
+
+const checkInputValidity = (input) => {
+  if (!input.validity.valid){
+      showError(input);
+      } else hideError (input);
+};
+
+
+
+// Слушатель события input
+formInputName.addEventListener('input', function (evt) {
+  // console.log(evt.target.validity.valid);
+  console.log(evt.target.validity);
+});
+
+// formInputJob.addEventListener('input', function (evt) {
+//   console.log(evt.target.validity.valid);
+// })
+
+
+
+
+// allForms.addEventListener('submit', function (evt) {
+//   evt.preventDefault();
+// });
+
+// formInput.addEventListener('input', function (evt) {
+//   console.log(evt.target.validity);
+// });
+
 popupCloseButton.forEach(function (button) {
   const closeButtonCross = button.closest('.popup');
   button.addEventListener('click', function () {

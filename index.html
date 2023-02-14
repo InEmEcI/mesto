@@ -10,6 +10,7 @@
   <script src="./scripts/validate.js" defer></script>
   <script src="./scripts/index.js" defer></script>
   <link rel="stylesheet" href="./pages/index.css" />
+  <link rel="stylesheet" href="./style.css" />
   <title>Mesto</title>
 </head>
 
@@ -22,8 +23,7 @@
       <a href="#"><img src="./images/logo.svg" alt="логотип сайта" class="header__logo" /></a>
     </header>
 
-    <section class="profile">
-      <!-- Профиль -->
+    <section class="profile"> <!-- Профиль -->
       <img src="./images/kusto.jpg" alt="аватар" class="profile__image" />
       <div class="profile__about">
         <div class="profile__name-and-button">
@@ -36,8 +36,7 @@
     </section>
 
     <section>
-      <!-- Карточки с городами -->
-      <ul class="elements"></ul>
+      <ul class="elements"></ul> <!-- Карточки с городами -->
     </section>
 
     <footer class="footer">
@@ -46,13 +45,13 @@
     </footer>
   </div> <!-- Конец страницы (page) -->
 
-  <!-- popup для профиля -->
-  <section class="popup popup_profile">
+  <section class="popup popup_profile"> <!-- popup для профиля -->
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="form-about" action="#" class="popup__form-about popup__form" novalidate>
         <input
+        autocomplete="off"
         type="text"
         required
         placeholder="Имя"
@@ -61,8 +60,9 @@
         minlength="2"
         maxlength="40"
         />
-        <span class=""></span>
+        <span class="form__input_error-field"></span>
         <input
+        autocomplete="off"
         type="text"
         required
         placeholder="Профессия"
@@ -71,8 +71,8 @@
         minlength="2"
         maxlength="200"
         />
-        <span class=""></span>
-        <button class="popup__save" type="submit">Сохранить</button>
+        <span class="form__input_error-field"></span>
+        <button class="popup__save" type="submit" disabled="disabled">Сохранить</button>
       </form>
     </div>
   </section>
@@ -82,8 +82,9 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about popup__form" novalidate/>
+      <form name="form-place" action="#" class="popup__form-about popup__form-about_new-form-about popup__form"  />
       <input
+      autocomplete="off"
       type="text"
       required
       name="place-name"
@@ -93,6 +94,7 @@
       maxlength="30"
       />
       <input
+      autocomplete="off"
       type="url"
       required
       name="photo-link"
@@ -100,7 +102,7 @@
       class="popup__input popup__input_type_photo-link"
       />
       <span class="form__item-error form__item-error_filed-link"></span>
-      <button class="popup__save popup__save_new-card-save" type="submit">Создать</button>
+      <button class="popup__save popup__save_new-card-save" type="submit" disabled="disabled">Создать</button>
       </form>
     </div>
   </section>

@@ -84,23 +84,19 @@ const showError = (input) => {
 };
 
 // удалить класс ошибки с элемента input
-const hideError = (input) => {
-  input.classList.remove('popup__input_type_error');
-};
+// const hideError = (input) => {
+//   input.classList.remove('popup__input_type_error');
+// };
 
-const checkInputValidity = (input) => {
-  if (!input.validity.valid){
-      showError(input);
-      } else hideError (input);
-};
-
+// function checkInputValidity(input) {
+//   if (!input.validity.valid){
+//       showError(input);
+//       } else hideError (input);
+// };
 
 
 // Слушатель события input
-formInputName.addEventListener('input', function (evt) {
-  // console.log(evt.target.validity.valid);
-  console.log(evt.target.validity);
-});
+// formInputName.addEventListener('input', checkInputValidity(formInputName));
 
 // formInputJob.addEventListener('input', function (evt) {
 //   console.log(evt.target.validity.valid);

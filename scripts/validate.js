@@ -46,20 +46,20 @@ const enableValidation = (object) => {
   });
 };
 
-function hasInvalidInput(inputList){
+function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
-  return !inputElement.validity.valid;
-});
+    return !inputElement.validity.valid;
+  });
 }
 
-function toggleButtonState (inputList, buttonElement, object) {
+function toggleButtonState(inputList, buttonElement, object) {
   if (hasInvalidInput(inputList)) {
-  buttonElement.setAttribute('disabled', true);
-  buttonElement.classList.add(object.inactiveButtonClass, 'disabled');
-} else {
-  buttonElement.removeAttribute('disabled');
-  buttonElement.classList.remove(object.inactiveButtonClass, 'disbled');
-}
+    buttonElement.setAttribute('disabled', true);
+    buttonElement.classList.add(object.inactiveButtonClass, 'disabled');
+  } else {
+    buttonElement.removeAttribute('disabled');
+    buttonElement.classList.remove(object.inactiveButtonClass, 'disbled');
+  }
 }
 
 enableValidation({

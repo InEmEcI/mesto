@@ -60,10 +60,11 @@ const openProfilePopup = function () {
 
 // функция открытия попапа для создания новой карточки
 const openAddNewCardPopup = function () {
+  const saveCardButton = popupNewCardItem.querySelector('.popup__save');
+  saveCardButton.setAttribute('disabled', '');
+  saveCardButton.classList.add('popup__button_disabled');
   popupNewPlaceForm.reset();
   openPopup(popupNewCardItem);
-  // popupContentSaveButton.setAttribute('disabled', true);
-  // popupContentSaveButton.classList.add('popup__button_disabled');
 }
 
 const renderCards = (item) => {

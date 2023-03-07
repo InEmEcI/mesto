@@ -114,6 +114,13 @@ function closePopupByPressToEsc(evt) {
   }
 }
 
+function zoomImage(item) {
+  cardImagePhoto.src = item.link;
+  cardImagePhoto.alt = item.name;
+  popupCardImageFigcaption.textContent = item.name;
+  openPopup(popupCardImage);
+}
+
 // функция для создания карточки
 // function createCard({ name, link }) {
 //   const card = templateCard.cloneNode(true);
@@ -138,7 +145,7 @@ function closePopupByPressToEsc(evt) {
 // }
 
 function createCard({ name, link }) {
-  const cardElement = new Card({name, link}, '.template-card');
+  const cardElement = new Card({name, link}, '.template-card', zoomImage);
   return cardElement.generateCard();
 }
 

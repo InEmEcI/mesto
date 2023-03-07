@@ -1,12 +1,13 @@
 
 class Card {
 
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, zoomImage) {
     this._templateSelector = templateSelector;
     this._link = data.link;
     this._name = data.name;
+    this._zoomImage = zoomImage;
+    this._data = data;
   }
-
 
   // здесь выполним все необходимые операции, чтобы вернуть разметку
   _getTemplate() {
@@ -27,25 +28,33 @@ class Card {
     this._element = this._getTemplate();
 
     // Добавим данные
-    this._element.querySelector('.element__image').src = this._link;
-    this._element.querySelector('.element__image').alt = this._name;
+    this._imageCard = this._element.querySelector('.element__image');
     this._element.querySelector('.element__title').textContent = this._name;
+    this._imageCard.src = this._link;
+    this._imageCard.alt = this._name;
 
+    this._setEventListeners();
     // Вернём элемент наружу
     return this._element;
   }
 
+  _setEventListeners() {
+
+    this._element.querySelector('.element__trash').addEventListener('click', () => this._element.remove());
+
+    this._element.querySelector('.element__like').addEventListener('click',
+      (evt) => {
+        evt.target.classList.toggle('element__like_active');
+      });
+
+    // открытие попапа просмотра карточки
+    this._imageCard.addEventListener('click',
+      () => {
+        this._zoomImage(this._data);
+      })
+  }
+
 }
-
-// initialCards.forEach((item) => {
-//   // Создадим экземпляр карточки
-//   const card = new Card(item.name, item.link);
-//   // Создаём карточку и возвращаем наружу
-//   const cardElement = card.generateCard();
-
-//   // Добавляем в DOM
-//   document.body.prepend(cardElement);  // правильно?
-// });
 
 export default Card;
 

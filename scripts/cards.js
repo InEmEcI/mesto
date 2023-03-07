@@ -1,5 +1,5 @@
 // первые 6 карточек
-const initialCards = [
+export const initialCards = [
 
   {
     name: 'Калининград',

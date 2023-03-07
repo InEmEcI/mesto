@@ -1,3 +1,8 @@
+import Card from './Card.js';
+import {initialCards} from './cards.js';
+
+
+
 // ПРОФИЛЬ
 const profileSection = document.querySelector('.profile'); // сам профиль
 const profileName = profileSection.querySelector('.profile__name'); // как зовут (в профиле)
@@ -110,26 +115,31 @@ function closePopupByPressToEsc(evt) {
 }
 
 // функция для создания карточки
+// function createCard({ name, link }) {
+//   const card = templateCard.cloneNode(true);
+//   const imageCard = card.querySelector('.element__image');
+//   card.querySelector('.element__title').textContent = name;
+//   imageCard.alt = name;
+//   imageCard.src = link;
+//   card.querySelector('.element__trash').addEventListener('click', () => card.remove());
+//   card.querySelector('.element__like').addEventListener('click',
+//     function (evt) {
+//       evt.target.classList.toggle('element__like_active');
+//     });
+//   // открытие попапа просмотра карточки
+//   imageCard.addEventListener('click',
+//     function () {
+//       cardImagePhoto.src = link;
+//       cardImagePhoto.alt = name;
+//       popupCardImageFigcaption.textContent = name;
+//       openPopup(popupCardImage);
+//     })
+//   return card;
+// }
+
 function createCard({ name, link }) {
-  const card = templateCard.cloneNode(true);
-  const imageCard = card.querySelector('.element__image');
-  card.querySelector('.element__title').textContent = name;
-  imageCard.alt = name;
-  imageCard.src = link;
-  card.querySelector('.element__trash').addEventListener('click', () => card.remove());
-  card.querySelector('.element__like').addEventListener('click',
-    function (evt) {
-      evt.target.classList.toggle('element__like_active');
-    });
-  // открытие попапа просмотра карточки
-  imageCard.addEventListener('click',
-    function () {
-      cardImagePhoto.src = link;
-      cardImagePhoto.alt = name;
-      popupCardImageFigcaption.textContent = name;
-      openPopup(popupCardImage);
-    })
-  return card;
+  const cardElement = new Card({name, link}, '.template-card');
+  return cardElement.generateCard();
 }
 
 initialCards.forEach(item => renderCards(item));

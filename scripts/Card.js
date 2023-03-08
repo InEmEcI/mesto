@@ -37,16 +37,24 @@ class Card {
     return this._element;
   }
 
+  _deleteCard(){
+    this._element.remove();
+  }
+
+  _handleImageClick(){
+    this._zoomImage(this._data);
+  };
+
+  _toggleLike(evt){
+      evt.target.classList.toggle('element__like_active');
+  }
+
+
   _setEventListeners() {
-    this._element.querySelector('.element__trash').addEventListener('click', () => this._element.remove());
-    this._element.querySelector('.element__like').addEventListener('click',
-      (evt) => {
-        evt.target.classList.toggle('element__like_active');
-      });
+    this._element.querySelector('.element__trash').addEventListener('click', () => this._deleteCard());
+    this._element.querySelector('.element__like').addEventListener('click', (evt) => this._toggleLike(evt));
     // открытие попапа просмотра карточки
-    this._imageCard.addEventListener('click', () => {
-        this._zoomImage(this._data);
-      })
+    this._imageCard.addEventListener('click', () => this._handleImageClick());
   }
 }
 

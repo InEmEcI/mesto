@@ -1,6 +1,4 @@
-
 class Card {
-
   constructor(data, templateSelector, zoomImage) {
     this._templateSelector = templateSelector;
     this._link = data.link;
@@ -34,26 +32,22 @@ class Card {
     this._imageCard.alt = this._name;
 
     this._setEventListeners();
+
     // Вернём элемент наружу
     return this._element;
   }
 
   _setEventListeners() {
-
     this._element.querySelector('.element__trash').addEventListener('click', () => this._element.remove());
-
     this._element.querySelector('.element__like').addEventListener('click',
       (evt) => {
         evt.target.classList.toggle('element__like_active');
       });
-
     // открытие попапа просмотра карточки
-    this._imageCard.addEventListener('click',
-      () => {
+    this._imageCard.addEventListener('click', () => {
         this._zoomImage(this._data);
       })
   }
-
 }
 
 export default Card;

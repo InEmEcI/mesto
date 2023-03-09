@@ -64,25 +64,25 @@ const object = {
   errorClass: 'popup__error_visible'
 };
 
-const profileValidation = new FormValidator(object, formElement);
-profileValidation.enableValidation();
 
 const cardsValidation = new FormValidator(object, popupNewPlaceForm);
 cardsValidation.enableValidation();
+
+const profileValidation = new FormValidator(object, formElement);
+profileValidation.enableValidation();
 
 // открытие попапа в профиле
 const openProfilePopup = function () {
   nameInput.value = profileName.textContent;
   jobInput.value = profileWhoIsThisElement.textContent;
+  profileValidation.resetValidation();
   openPopup(popupProfile);
 }
 
 // функция открытия попапа для создания новой карточки
 const openAddNewCardPopup = function () {
-  const saveCardButton = popupNewCardItem.querySelector('.popup__save');
-  saveCardButton.setAttribute('disabled', '');
-  saveCardButton.classList.add('popup__button_disabled');
   popupNewPlaceForm.reset();
+  cardsValidation.resetValidation();
   openPopup(popupNewCardItem);
 }
 
@@ -162,5 +162,6 @@ function addNewCard(evt) {
 // СЛУШАТЕЛИ
 profileOpenButton.addEventListener('click', openProfilePopup);
 popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);
+
 formElement.addEventListener('submit', saveProfileChanges);
 popupNewPlaceForm.addEventListener('submit', addNewCard);

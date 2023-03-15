@@ -1,6 +1,6 @@
 import {initialCards} from './cards.js';
-import Card from './Card.js';
-import {FormValidator} from './FormValidator.js';
+import Card from '../components/Card.js';
+import {FormValidator} from '../components/FormValidator.js';
 
 // ПРОФИЛЬ
 const profileSection = document.querySelector('.profile'); // сам профиль
@@ -8,51 +8,31 @@ const profileName = profileSection.querySelector('.profile__name'); // как з
 const profileWhoIsThisElement = profileSection.querySelector('.profile__who-is-this'); // кто он (в профиле)
 
 // ПОПАП
-// Все попапы
-const allPopups = document.querySelectorAll('.popup');
+const allPopups = document.querySelectorAll('.popup'); // Все попапы
+const popupCloseButtons = document.querySelectorAll('.popup__close'); // кнопки закрытия попапов
+
+// ПОПАП ПРОФИЛЬ
 const popupProfile = document.querySelector('.popup_profile'); // попап профиля
 const profileOpenButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
-// const popupClose = popupProfile.querySelector('.popup__close'); // кнопка закрытия попапа в профиле
-const profileNameInput = popupProfile.querySelector('.popup__name'); // как зовут (в попапе)
-const popupWhoIsThisElement = popupProfile.querySelector('.popup__who-is-this'); // кто он (в попапе)
+const formElement = document.querySelector('.popup__form_profile'); // форма в попапе профиля
+const nameInput = formElement.querySelector('.popup__input_name_name'); // имя в попапе профиля
+const jobInput = formElement.querySelector('.popup__input_name_who-is-this'); // "кто он" в попапе профиля
 
-// кнопка сохранения информации в попапе
-const popupContentSaveButton = popupProfile.querySelector('.popup__save');
+// КАРТОЧКИ
+const cardsSection = document.querySelector('.elements');
 
 // НОВАЯ КАРТОЧКА
 const popupNewPlaceForm = document.querySelector('.popup__form-about_new-form-about'); // форма новой карточки
 const popupNewCardItem = document.querySelector('.popup_new-card'); // попап новой карточки
 const newCardName = document.querySelector('.popup__input_type_card-name'); // имя карточки а попапе
 const newCardLink = document.querySelector('.popup__input_type_photo-link') // ссылка на картинку карточки а попапе
-// кнопка сохранения информации в попапе при создании новой карточки
-const popupAddNewCardSaveButton = popupNewCardItem.querySelector('.new-card-save');
 const popupAddNewCardOpen = document.querySelector('.profile__add-new') // кнопка открытия попапа новой карточки
-// кнопка закрытия попапа новой карточки
-const popupAddNewCardCloseButton = popupNewCardItem.querySelector('.popup-new-card_close');
 
-// ПОПАП ПРОФИЛЬ
-const formElement = document.querySelector('.popup__form_profile'); // форма в попапе профиля
-const nameInput = formElement.querySelector('.popup__input_name_name'); // имя в попапе профиля
-const jobInput = formElement.querySelector('.popup__input_name_who-is-this'); // "кто он" в попапе профиля
-
-// кнопки закрытия попапов
-const popupCloseButtons = document.querySelectorAll('.popup__close');
-
-// КАРТОЧКИ
-const cardsSection = document.querySelector('.elements');
-const cardsSectionElement = cardsSection.querySelector('.element'); // Карточка
-const likeButton = document.querySelector('.element__like'); // кнопка like
-const cardImage = document.querySelector('.popup-card-image__figure'); // изображение в карточке
-// карточка с городами в template(шаблоне) (<article class="element">)
-const templateCard = document.querySelector('#template-card').content.querySelector('.element');
-const newCardButton = document.querySelector('.profile__add-new'); // кнопка добавления карточки
-const elementTrashButton = cardsSection.querySelector('.element__trash'); // кнопка удаления карточки
-
-// ПОПАП БОЛЬШОЙ КАРТОЧКИ
+// ПОПАП УВЕЛИЧЕННОЙ КАРТОЧКИ
 const cardImagePhoto = document.querySelector('.popup-card-image__photo');
 // фото карточки в попапе большой карточки
 const popupCardImage = document.querySelector('.popup-card-image');
-// подпись фотографии
+// подпись фотографии в попапе большой карточки
 const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
 
 const object = {
@@ -161,7 +141,6 @@ function addNewCard(evt) {
 
 // СЛУШАТЕЛИ
 profileOpenButton.addEventListener('click', openProfilePopup);
-popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);
-
+popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup); 
 formElement.addEventListener('submit', saveProfileChanges);
 popupNewPlaceForm.addEventListener('submit', addNewCard);

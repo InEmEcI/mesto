@@ -1,39 +1,13 @@
-import {initialCards} from './cards.js';
+import {initialCards} from '../utils/constants.js';
 import Card from '../components/Card.js';
+import {profileName, profileWhoIsThisElement,
+  allPopups, popupCloseButtons, popupProfile, profileOpenButton,
+  formElement, nameInput, jobInput, cardsSection,
+  popupNewPlaceForm, popupNewCardItem, newCardName, newCardLink,
+  popupAddNewCardOpen, cardImagePhoto, popupCardImage, popupCardImageFigcaption,
+} from '../utils/constants.js';
 import {FormValidator} from '../components/FormValidator.js';
 
-// ПРОФИЛЬ
-const profileSection = document.querySelector('.profile'); // сам профиль
-const profileName = profileSection.querySelector('.profile__name'); // как зовут (в профиле)
-const profileWhoIsThisElement = profileSection.querySelector('.profile__who-is-this'); // кто он (в профиле)
-
-// ПОПАП
-const allPopups = document.querySelectorAll('.popup'); // Все попапы
-const popupCloseButtons = document.querySelectorAll('.popup__close'); // кнопки закрытия попапов
-
-// ПОПАП ПРОФИЛЬ
-const popupProfile = document.querySelector('.popup_profile'); // попап профиля
-const profileOpenButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
-const formElement = document.querySelector('.popup__form_profile'); // форма в попапе профиля
-const nameInput = formElement.querySelector('.popup__input_name_name'); // имя в попапе профиля
-const jobInput = formElement.querySelector('.popup__input_name_who-is-this'); // "кто он" в попапе профиля
-
-// КАРТОЧКИ
-const cardsSection = document.querySelector('.elements');
-
-// НОВАЯ КАРТОЧКА
-const popupNewPlaceForm = document.querySelector('.popup__form-about_new-form-about'); // форма новой карточки
-const popupNewCardItem = document.querySelector('.popup_new-card'); // попап новой карточки
-const newCardName = document.querySelector('.popup__input_type_card-name'); // имя карточки а попапе
-const newCardLink = document.querySelector('.popup__input_type_photo-link') // ссылка на картинку карточки а попапе
-const popupAddNewCardOpen = document.querySelector('.profile__add-new') // кнопка открытия попапа новой карточки
-
-// ПОПАП УВЕЛИЧЕННОЙ КАРТОЧКИ
-const cardImagePhoto = document.querySelector('.popup-card-image__photo');
-// фото карточки в попапе большой карточки
-const popupCardImage = document.querySelector('.popup-card-image');
-// подпись фотографии в попапе большой карточки
-const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
 
 const object = {
   formSelector: '.popup__form',
@@ -141,6 +115,6 @@ function addNewCard(evt) {
 
 // СЛУШАТЕЛИ
 profileOpenButton.addEventListener('click', openProfilePopup);
-popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup); 
+popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);
 formElement.addEventListener('submit', saveProfileChanges);
 popupNewPlaceForm.addEventListener('submit', addNewCard);

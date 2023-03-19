@@ -1,9 +1,9 @@
 class Card {
-  constructor(data, templateSelector, zoomImage) {
+  constructor(data, templateSelector, clickToImage) {
     this._templateSelector = templateSelector;
     this._link = data.link;
     this._name = data.name;
-    this._zoomImage = zoomImage;
+    this._clickToImage = clickToImage;
     this._data = data;
   }
 
@@ -42,13 +42,13 @@ class Card {
   }
 
   _handleImageClick(){
-    this._zoomImage(this._data);
+    // this._zoomImage(this._data);
+    this._clickToImage({name: this._name, link: this._link});
   };
 
   _toggleLike(evt){
       evt.target.classList.toggle('element__like_active');
   }
-
 
   _setEventListeners() {
     this._element.querySelector('.element__trash').addEventListener('click', () => this._deleteCard());

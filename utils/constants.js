@@ -33,6 +33,14 @@ export const initialCards = [
 
 ];
 
+export const object = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
 
 // ПРОФИЛЬ
 export const profileSection = document.querySelector('.profile'); // сам профиль

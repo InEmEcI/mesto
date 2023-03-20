@@ -1,10 +1,10 @@
 class Card {
   constructor(data, templateSelector, clickToImage) {
-    this._templateSelector = templateSelector;
+    this._data = data;
     this._link = data.link;
     this._name = data.name;
+    this._templateSelector = templateSelector;
     this._clickToImage = clickToImage;
-    this._data = data;
   }
 
   // здесь выполним все необходимые операции, чтобы вернуть разметку
@@ -59,4 +59,3 @@ class Card {
 }
 
 export default Card;
-

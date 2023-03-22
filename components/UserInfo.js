@@ -5,16 +5,16 @@ constructor ({name, whoIsThis}){
   this._whoIsThis = document.querySelector(whoIsThis);
 }
 
-countInfo(){
+getUserInfo(){
   return{
     name: this._name.textContent,
-    whoIsThis: this._whoIsThis.textContent
+    job: this._whoIsThis.textContent
   }
 }
 
-addInfo(name, whoIsThis){
+setUserInfo(name, job){
   this._name.textContent = name;
-  this._whoIsThis.textContent = whoIsThis;
+  this._whoIsThis.textContent = job;
 }
 
 }

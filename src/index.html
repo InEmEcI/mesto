@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
   <script type = "module" src="./scripts/index.js" defer></script>
-  <link rel="stylesheet" href="./pages/index.css" />
   <title>Mesto</title>
 </head>
 
@@ -17,12 +16,12 @@
 
     <header class="header">
       <!-- Заголовок страницы -->
-      <a href="#"><img src="./images/logo.svg" alt="логотип сайта" class="header__logo" />
+      <a href="#"><img src="<%=require('./images/logo.svg')%>" alt="логотип сайта" class="header__logo" />
       </a>
     </header>
 
     <section class="profile"> <!-- Профиль -->
-      <img src="./images/kusto.jpg" alt="аватар" class="profile__image" />
+      <img src="<%=require('./images/kusto.jpg')%>" alt="аватар" class="profile__image" />
       <div class="profile__about">
         <div class="profile__name-and-button">
           <h1 class="profile__name">Жак-Ив Кусто</h1>

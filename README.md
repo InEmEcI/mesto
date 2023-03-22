@@ -1,4 +1,4 @@
-# Проектная работа №5 "Mesto"
+# Проектная работа №8 "Mesto"
 
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1)

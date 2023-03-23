@@ -5,7 +5,7 @@ import {
   profileName, profileWhoIsThisElement,
   popupProfile, profileOpenButton,
   formElement, cardsSection, popupNewPlaceForm,
-  popupAddNewCardOpen, object
+  popupAddNewCardOpen, validationConfig
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js';
@@ -22,15 +22,15 @@ const saveUserInfo = (input) => {
   userInfo.setUserInfo(input.name, input.job)
 };
 
-const editUserInfo = new PopupWithForm(popupProfile, saveUserInfo)
+const popupEditProfile = new PopupWithForm(popupProfile, saveUserInfo)
 
 profileOpenButton.addEventListener('click', () => {
-  editUserInfo.open();
+  popupEditProfile.open();
   profileValidation.resetValidation();
-  editUserInfo.setInputValues(userInfo.getUserInfo());
+  popupEditProfile.setInputValues(userInfo.getUserInfo());
 });
 
-editUserInfo.setEventListeners();
+popupEditProfile.setEventListeners();
 // открытие попапа с картинкой
 const popupWithImage = new PopupWithImage('.popup-card-image');
 const clickToImage = ({ name, link }) => { popupWithImage.open({ name, link }) };
@@ -52,12 +52,12 @@ const section = new Section({
 },'.elements');
 section.renderItems();
 
-function headleAddSubmit(data){
+function submitAddCardForm(data){
   section.addItem(createCard(data));
 }
 
 // для добавления карточки
-const popupWithFormCard = new PopupWithForm('.popup_new-card', headleAddSubmit);
+const popupWithFormCard = new PopupWithForm('.popup_new-card', submitAddCardForm);
 popupWithFormCard.setEventListeners();
 
 // функция открытия попапа для создания новой карточки
@@ -66,10 +66,10 @@ const openAddNewCardPopup = function () {
   popupWithFormCard.open();
 }
 
-const cardsValidation = new FormValidator(object, popupNewPlaceForm);
+const cardsValidation = new FormValidator(validationConfig, popupNewPlaceForm);
 cardsValidation.enableValidation();
 
-const profileValidation = new FormValidator(object, formElement);
+const profileValidation = new FormValidator(validationConfig, formElement);
 profileValidation.enableValidation();
 
 // СЛУШАТЕЛИ

@@ -1,34 +1,42 @@
+import piter from '../images/piter_1.jpg';
+import moskva from '../images/moskva_2.jpg';
+import kazan from '../images/kazan_3.jpg';
+import nizhniiNovgorod from '../images/nizhnii-novgorod_4.jpg';
+import ekatirenburg from '../images/ekatirenburg_5.jpg';
+import kaliningrad from '../images/kaliningrad_6.jpg';
+
+
 // первые 6 карточек
 export const initialCards = [
 
   {
     name: 'Калининград',
-    link: './images/kaliningrad_6.jpg'
+    link: kaliningrad
   },
 
   {
     name: 'Екатеринбург',
-    link: './images/ekatirenburg_5.jpg'
+    link: ekatirenburg
   },
 
   {
     name: 'Нижний Новгород',
-    link: './images/nizhnii-novgorod_4.jpg'
+    link: nizhniiNovgorod
   },
 
   {
     name: 'Казань',
-    link: './images/kazan_3.jpg'
+    link: kazan
   },
 
   {
     name: 'Москва',
-    link: './images/moskva_2.jpg'
+    link: moskva
   },
 
   {
     name: 'Санкт-Петербург',
-    link: './images/piter_1.jpg'
+    link: piter
   }
 
 ];
@@ -44,9 +52,6 @@ export const object = {
 
 // ПРОФИЛЬ
 export const profileSection = '.profile'; // сам профиль
-// export const profileSection = document.querySelector('.profile'); // сам профиль
-// export const profileName = profileSection.querySelector('.profile__name'); // как зовут (в профиле)
-// export const profileWhoIsThisElement = profileSection.querySelector('.profile__who-is-this'); // кто он (в профиле)
 export const profileName = '.profile__name'; // как зовут (в профиле)
 export const profileWhoIsThisElement = '.profile__who-is-this'; // кто он (в профиле)
 
@@ -55,7 +60,6 @@ export const allPopups = document.querySelectorAll('.popup'); // Все попа
 export const popupCloseButtons = document.querySelectorAll('.popup__close'); // кнопки закрытия попапов
 
 // ПОПАП ПРОФИЛЬ
-// export const popupProfile = document.querySelector('.popup_profile'); // попап профиля
 export const popupProfile = '.popup_profile'; // попап профиля
 export const profileOpenButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
 export const formElement = document.querySelector('.popup__form_profile'); // форма в попапе профиля
@@ -66,10 +70,6 @@ export const jobInput = formElement.querySelector('.popup__input_name_who-is-thi
 export const cardsSection = document.querySelector('.elements');
 export const cardName = document.querySelector('.popup__input_type_card-name');
 export const photoLink = document.querySelector('.popup__input_type_photo-link');
-// export const cardName = '.popup__input_type_card-name';
-// export const photoLink = '.popup__input_type_photo-link';
-
-
 
 // НОВАЯ КАРТОЧКА
 export const popupNewPlaceForm = document.querySelector('.popup__form-about_new-form-about'); // форма новой карточки

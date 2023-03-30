@@ -1,15 +1,6 @@
 .element__like-counter {
   margin-top: 3px;
-  /* width: 10px;
-  height: 13px; */
-  /* margin: 0 26px 0 0; */
-  /* position: absolute; */
-  /* right: 26px; */
-  /* top: 320px; */
-  /* margin-right: 26px; */
-
-  /* margin-left: 0; */
-  /* margin-bottom: 0; */
+  margin-right: 20px;
 
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;

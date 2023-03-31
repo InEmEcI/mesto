@@ -18,9 +18,8 @@
     </header>
 
     <section class="profile"> <!-- Профиль -->
-      <!-- <img src="./images/kusto.jpg" alt="аватар" class="profile__image" /> -->
-      <!-- <div class="profile__image"></div> -->
-      <button type = button class="profile__change-image-btn">
+
+      <button type = "button" class="profile__change-image-btn">
         <img src="<%=require('./images/kusto.jpg')%>" class="profile__image" alt="аватар">
       </button>
 
@@ -34,9 +33,10 @@
       <button class="profile__add-new" type="button"></button>
     </section>
 
-    <section> <!-- Карточки с городами -->
-      <ul class="elements"></ul>
-      <!-- <div class="elements"></div> -->
+    <section>
+      <ul class="elements">
+        <!-- Карточки с городами -->
+      </ul>
     </section>
 
     <footer class="footer"> <!-- Подвал страницы -->
@@ -58,6 +58,27 @@
         <span class="popup__input-error job-input-error"></span>
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
+    </div>
+  </section>
+
+  <section class="popup popup__avatar"> <!-- popup для замены аватарки -->
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="avatar" action="#" class="popup__form" novalidate>
+        <input id="photo-link-input" autocomplete="off" type="url" required name="link" placeholder="Ссылка на картинку"
+        class="popup__input popup__input_type_photo-link" />
+      <span class="popup__input-error photo-link-input-error"></span>
+      <button class="popup__save" type="submit">Создать</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="popup popup__card-del"> <!-- popup для подтверждения удаления карточки -->
+    <div class="popup__container">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button class="popup__save" type="submit">Да</button>
     </div>
   </section>
 

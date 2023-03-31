@@ -72,7 +72,25 @@ cardsValidation.enableValidation();
 const profileValidation = new FormValidator(validationConfig, formElement);
 profileValidation.enableValidation();
 
+
+const cardDel = document.querySelector('.profile__change-image-btn') // попап для замены аватара
+const openDelCardPopup = function () {
+  // open('.popup__avatar');
+  // alert('Всё ОК!')
+  fetch('https://mesto.nomoreparties.co/v1/cohort-63/cards', {
+  headers: {
+    authorization: '186e858b-0f86-414d-8c8c-a1408bf9b14d'
+  }
+})
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+}
+cardDel.addEventListener('click', openDelCardPopup);
+
 // СЛУШАТЕЛИ
+
 popupAddNewCardOpen.addEventListener('click', openAddNewCardPopup);
 
 

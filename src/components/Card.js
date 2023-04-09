@@ -1,10 +1,12 @@
 class Card {
-  constructor(data, templateSelector, clickToImage) {
+  constructor(data, templateSelector, clickToImage, userId, handleConfirmation) {
     this._data = data;
     this._link = data.link;
     this._name = data.name;
+    this._userOwner = data.owner._id === userId;
     this._templateSelector = templateSelector;
     this._clickToImage = clickToImage;
+    this._handleConfirmation = handleConfirmation;
   }
 
   // здесь выполним все необходимые операции, чтобы вернуть разметку
@@ -30,7 +32,7 @@ class Card {
     this._element.querySelector('.element__title').textContent = this._name;
     this._imageCard.src = this._link;
     this._imageCard.alt = this._name;
-
+    this._cardDelButton = this._element.querySelector('.element__trash');
     this._setEventListeners();
 
     // Вернём элемент наружу
@@ -55,6 +57,11 @@ class Card {
     this._element.querySelector('.element__like').addEventListener('click', (evt) => this._toggleLike(evt));
     // открытие попапа просмотра карточки
     this._imageCard.addEventListener('click', () => this._handleImageClick());
+    if (this._userOwner) {
+      this._cardDelButton.addEventListener('click', this._handleConfirmation)
+    } else {
+      this._cardDelButton.remove();
+    }
   }
 }
 

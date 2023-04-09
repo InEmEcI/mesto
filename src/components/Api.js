@@ -1,19 +1,91 @@
 class Api {
-  constructor(options) {
-    // тело конструктора
+  constructor({ url, headers }) {
+    this._url = url;
+    this._headers = headers;
   }
 
-  getInitialCards() {
-    // ...
+  _checkError() {
+    return res => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
   }
 
-  // другие методы работы с API
+  getCards() {
+    return fetch(this._url + `/cards`, {
+      method: 'GET',
+      headers: this._headers
+    }).then(this._checkError())
+  }
+
+  getUser() {
+    return fetch(this._url + `/users/me`, {
+      method: 'GET',
+      headers: this._headers
+    }).then(this._checkError())
+  }
+
+  editUserInfo(info) {
+    return fetch(this._url + `/users/me`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: info.name,
+        about: info.about
+      })
+    }).then(this._checkError())
+  }
+
+
+  changeUserAvatar(data) {
+    return fetch(this._url + `/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.avatar,
+      })
+    }).then(this._checkError())
+  }
+
+  addNewCard(data) {
+    return fetch(this._url + `/cards`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        link: data.link
+      })
+    }).then(this._checkError())
+  }
+
+  likeCard(id) {
+    return fetch(this._url + `/cards/${id}/likes`, {
+      method: 'PUT',
+      headers: this._headers,
+    }).then(this._checkError())
+  }
+
+  dislikeCard(id) {
+    return fetch(this._url + `/cards/${id}/likes`, {
+      method: 'DELETE',
+      headers: this._headers,
+    }).then(this._checkError())
+  }
+
+  removeCard(id) {
+    return fetch(this._url + `/cards/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: this._token,
+        'Content-Type': 'application/json'
+      }
+    }).then(this._checkError())
+  }
+
+
+
 }
 
-const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',
-  headers: {
-    authorization: '186e858b-0f86-414d-8c8c-a1408bf9b14d',
-    'Content-Type': 'application/json'
-  }
-});
+export default Api;

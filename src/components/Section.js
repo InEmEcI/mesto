@@ -1,6 +1,6 @@
 class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this._renderedItems = items;
+  constructor({ renderer }, containerSelector) {
+    // this._renderedItems = items;
     this._renderer = renderer;
     this._containerSelector = document.querySelector(containerSelector);
   }
@@ -9,10 +9,28 @@ class Section {
     this._containerSelector.prepend(item);
   }
 
-  renderItems() {
-    this._renderedItems.forEach((item) => {
-      this._renderer(item) });
+  renderItems(items) {
+    this._items = items;
+    this._items.forEach((item) => {
+      this._renderer(item)
+    });
   }
+
+  // addItem(item, isInversed = false) {
+  //   if (isInversed) {
+  //     this._containerSelector.prepend(item);
+  //   } else {
+  //     this._containerSelector.append(item);
+  //   }
+  // }
+
+  // renderItems(cards) {
+  //   cards.forEach((item) => {
+  //     const element = this._renderer(item);
+  //     this.addItem(element);
+  //   })
+  // }
+
 
 }
 

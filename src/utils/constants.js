@@ -1,45 +1,45 @@
-import piter from '../images/piter_1.jpg';
-import moskva from '../images/moskva_2.jpg';
-import kazan from '../images/kazan_3.jpg';
-import nizhniiNovgorod from '../images/nizhnii-novgorod_4.jpg';
-import ekatirenburg from '../images/ekatirenburg_5.jpg';
-import kaliningrad from '../images/kaliningrad_6.jpg';
+// import piter from '../images/piter_1.jpg';
+// import moskva from '../images/moskva_2.jpg';
+// import kazan from '../images/kazan_3.jpg';
+// import nizhniiNovgorod from '../images/nizhnii-novgorod_4.jpg';
+// import ekatirenburg from '../images/ekatirenburg_5.jpg';
+// import kaliningrad from '../images/kaliningrad_6.jpg';
 
 
-// первые 6 карточек
-export const initialCards = [
+// // первые 6 карточек
+// export const initialCards = [
 
-  {
-    name: 'Калининград',
-    link: kaliningrad
-  },
+//   {
+//     name: 'Калининград',
+//     link: kaliningrad
+//   },
 
-  {
-    name: 'Екатеринбург',
-    link: ekatirenburg
-  },
+//   {
+//     name: 'Екатеринбург',
+//     link: ekatirenburg
+//   },
 
-  {
-    name: 'Нижний Новгород',
-    link: nizhniiNovgorod
-  },
+//   {
+//     name: 'Нижний Новгород',
+//     link: nizhniiNovgorod
+//   },
 
-  {
-    name: 'Казань',
-    link: kazan
-  },
+//   {
+//     name: 'Казань',
+//     link: kazan
+//   },
 
-  {
-    name: 'Москва',
-    link: moskva
-  },
+//   {
+//     name: 'Москва',
+//     link: moskva
+//   },
 
-  {
-    name: 'Санкт-Петербург',
-    link: piter
-  }
+//   {
+//     name: 'Санкт-Петербург',
+//     link: piter
+//   }
 
-];
+// ];
 
 export const validationConfig = {
   formSelector: '.popup__form',
@@ -54,10 +54,17 @@ export const validationConfig = {
 export const profileSection = '.profile'; // сам профиль
 export const profileName = '.profile__name'; // как зовут (в профиле)
 export const profileWhoIsThisElement = '.profile__who-is-this'; // кто он (в профиле)
+export const profileImage = '.profile__image'; // аватар (в профиле)
+export const avatarOpenButton = document.querySelector('.profile__change-image-btn'); // кнопка аватар (в профиле)
+export const profileEditAvatarButton = document.querySelector('.profile__edit'); // кнопка открытия попапа в профиле
+export const popupAvatarForm = document.querySelector('.popup__avatar-edit') // форма замены аватара
 
 // ПОПАП
 export const allPopups = document.querySelectorAll('.popup'); // Все попапы
 export const popupCloseButtons = document.querySelectorAll('.popup__close'); // кнопки закрытия попапов
+
+// ПОПАП ЗАМЕНЫ АВАТАРА
+export const popupAvatar = '.popup__avatar'; // попа аватара
 
 // ПОПАП ПРОФИЛЬ
 export const popupProfile = '.popup_profile'; // попап профиля

@@ -7,6 +7,7 @@ class Card {
     this._templateSelector = templateSelector;
     this._clickToImage = clickToImage;
     this._handleConfirmation = handleConfirmation;
+    // console.log(this._userOwner);
   }
 
   // здесь выполним все необходимые операции, чтобы вернуть разметку
@@ -35,8 +36,7 @@ class Card {
     this._cardDelButton = this._element.querySelector('.element__trash');
     this._setEventListeners();
 
-    // Вернём элемент наружу
-    return this._element;
+    return this._element; // Вернём элемент наружу
   }
 
   _deleteCard(){
@@ -44,7 +44,6 @@ class Card {
   }
 
   _handleImageClick(){
-    // this._zoomImage(this._data);
     this._clickToImage({name: this._name, link: this._link});
   };
 

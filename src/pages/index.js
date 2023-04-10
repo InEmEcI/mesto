@@ -48,8 +48,6 @@ const userInfo = new UserInfo({
   avatar: '.profile__image'
 });
 
-
-
 const handleEditUserInfo = (info) => {
   api.editUserInfo(info)
     .then((info) => { userInfo.setUserInfo(info) })
@@ -64,13 +62,13 @@ const heandleChangeAvatar = (item) => {
     .catch((error) => console.log(`Ошибка: ${error}`))
 }
 
-function removeCard(evt, {cardId, card}) {
+function removeCard(evt, { cardId, card }) {
   evt.preventDefault();
   api.removeCard(cardId)
-  .then(() => {
-    card.remove();
-    popupWithConfirmation.close();
-  })
+    .then(() => {
+      card.remove();
+      popupWithConfirmation.close();
+    })
 }
 
 // попап информации профиля
@@ -103,11 +101,9 @@ function createCard(data) {
     clickToImage,
     userId,
     (cardId, card) => popupWithConfirmation.open(cardId, card)
-    );
+  );
   return cardElement.generateCard();
 }
-
-
 
 // добавляем  карточки на страницу
 const section = new Section({
@@ -115,34 +111,28 @@ const section = new Section({
     const cardContainer = createCard(item);
     cardsSection.prepend(cardContainer);
   },
-},'.elements');
-
-
+}, '.elements');
 
 // для подтверждения создания новой карточки
 const submitAddCardForm = (data) => {
   api.addNewCard(data)
     .then((data) => {
-      section.addItem(createCard({name: data.name, link: data.link}));
+      section.addItem(createCard({ name: data.name, link: data.link }));
     })
-    .then( ()=> {
+    .then(() => {
       popupWithFormCard.close();
     })
     .catch((error) => console.log(`Ошибка: ${error}`));
 }
 
 
-
-
-
-// попап для добавления карточки
-const popupWithFormCard = new PopupWithForm('.popup_new-card', submitAddCardForm);
-popupWithFormCard.setEventListeners();
-
+// попап для подтвеждения удаления карточки
 const popupWithConfirmation = new PopupWithConfirmation('.popup__card-del', removeCard)
 popupWithConfirmation.setEventListeners();
 
-
+// попап для добавления новой карточки
+const popupWithFormCard = new PopupWithForm('.popup_new-card', submitAddCardForm);
+popupWithFormCard.setEventListeners();
 
 // ВАЛИДАЦИЯ:
 
@@ -160,7 +150,3 @@ popupAddNewCardOpen.addEventListener('click', () => {
   popupWithFormCard.open();
   cardsValidation.resetValidation();
 });
-
-// addEventListener('click', openAddNewCardPopup);
-
-

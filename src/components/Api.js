@@ -14,21 +14,21 @@ class Api {
   }
 
   getCards() {
-    return fetch(this._url + `/cards`, {
+    return fetch(this._url + `/cards/`, {
       method: 'GET',
       headers: this._headers
     }).then(this._checkError())
   }
 
   getUser() {
-    return fetch(this._url + `/users/me`, {
+    return fetch(this._url + `/users/me/`, {
       method: 'GET',
       headers: this._headers
     }).then(this._checkError())
   }
 
   editUserInfo(info) {
-    return fetch(this._url + `/users/me`, {
+    return fetch(this._url + `/users/me/`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -40,7 +40,7 @@ class Api {
 
 
   changeUserAvatar(data) {
-    return fetch(this._url + `/users/me/avatar`, {
+    return fetch(this._url + `/users/me/avatar/`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -50,13 +50,23 @@ class Api {
   }
 
   addNewCard(data) {
-    return fetch(this._url + `/cards`, {
+    return fetch(this._url + `/cards/`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         link: data.link
       })
+    }).then(this._checkError())
+  }
+
+  removeCard(id) {
+    return fetch(this._url + `/cards/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: this._token,
+        'Content-Type': 'application/json'
+      }
     }).then(this._checkError())
   }
 
@@ -73,18 +83,6 @@ class Api {
       headers: this._headers,
     }).then(this._checkError())
   }
-
-  removeCard(id) {
-    return fetch(this._url + `/cards/${id}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      }
-    }).then(this._checkError())
-  }
-
-
 
 }
 

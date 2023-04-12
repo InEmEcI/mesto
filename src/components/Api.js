@@ -60,30 +60,26 @@ class Api {
     }).then(this._checkError())
   }
 
-  removeCard(id) {
-    return fetch(this._url + `/cards/${id}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      }
-    }).then(this._checkError())
-  }
-
-  likeCard(id) {
-    return fetch(this._url + `/cards/${id}/likes`, {
-      method: 'PUT',
-      headers: this._headers,
-    }).then(this._checkError())
-  }
-
-  dislikeCard(id) {
-    return fetch(this._url + `/cards/${id}/likes`, {
+  removeCard(cardId) {
+    return fetch(this._url + `/cards/` + cardId, {
       method: 'DELETE',
       headers: this._headers,
     }).then(this._checkError())
   }
 
+  likeCard(cardId) {
+    return fetch(this._baseUrl + "/cards/" + cardId + "/likes", {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._checkError())
+  }
+
+  dislikeCard(cardId) {
+    return fetch(this._baseUrl + "/cards/" + cardId + "/likes", {
+      method: 'DELETE',
+      headers: this._headers,
+    }).then(this._checkError())
+  }
 }
 
 export default Api;

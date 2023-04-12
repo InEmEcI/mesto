@@ -1,25 +1,25 @@
 import Popup from './Popup.js';
 
 class PopupWithConfirmation extends Popup {
-  constructor(selector, submit) {
+  constructor(selector) {
     super(selector);
-    this._submit = submit;
+   
     this._popupForm = this._popup.querySelector('.popup__form');
   }
 
-  open(cardId, card) {
-    super.open();
-    this._cardId = cardId;
-    this._card = card;
-  }
 
-  _submitConfirmation = (evt) => {
-    this._submit(evt, { cardId: this._cardId, card: this._card })
+  submitConfirmation(callback) {
+    this._confirm = callback;
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._popupForm.addEventListener('submit', this._submitConfirmation);
+    // this._popupForm.addEventListener('submit', this._submitConfirmation);
+    this._popupForm.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._confirm();
+    });
+
   }
 
 }

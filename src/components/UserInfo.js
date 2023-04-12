@@ -4,7 +4,6 @@ class UserInfo {
       this._about = document.querySelector(about);
       this._avatar = document.querySelector(avatar);
       this._id = '';
-      // const userId = null;
   }
 
   getUserInfo() {
@@ -22,7 +21,6 @@ class UserInfo {
       this._about.textContent = about;
       this._avatar.src = avatar;
       this._id = _id;
-      // console.log(this._id);
   }
 
   setUserAvatar(link) {

@@ -1,6 +1,5 @@
 class Section {
   constructor({ renderer }, containerSelector) {
-    // this._renderedItems = items;
     this._renderer = renderer;
     this._containerSelector = document.querySelector(containerSelector);
   }
@@ -11,7 +10,7 @@ class Section {
 
   renderItems(items) {
     this._items = items;
-    this._items.forEach((item) => {
+    this._items.reverse().forEach((item) => {
       this._renderer(item)
     });
   }

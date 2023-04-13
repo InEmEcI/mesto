@@ -26,7 +26,7 @@ const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-63',
   headers: {
     authorization: "186e858b-0f86-414d-8c8c-a1408bf9b14d",
-    "Content-Type": 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
@@ -58,6 +58,7 @@ function changeButtonText(action, selector, text) {
   }
 }
 
+// редактирование информации о пользователе
 const handleEditUserInfo = (info) => {
   changeButtonText(true, '.popup__save-userinfo', "Сохранить");
   api
@@ -73,6 +74,7 @@ const handleEditUserInfo = (info) => {
       changeButtonText(false, '.popup__save-userinfo', "Сохранить")
     );
 };
+
 
 const heandleChangeAvatar = (item) => {
   changeButtonText(true, '.popup__save-avatar', "Сохранить");
@@ -131,7 +133,28 @@ function createCard(data) {
           .catch((error) => console.log(`Ошибка: ${error}`));
       });
     },
-  });
+    clickToLike: (isLiked, cardId, removeLike, changeLikeNumber, addLike) => {
+      if (isLiked) {
+        api.
+          dislikeCard(cardId)
+          .then((data) => {
+            changeLikeNumber(data);
+            removeLike();
+          }
+          )
+          .catch((error) => console.log(`Ошибка: ${error}`));
+      } else {
+        api.
+          likeCard(cardId)
+          .then((data) => {
+            changeLikeNumber(data);
+            addLike();
+          }
+          )
+          .catch((error) => console.log(`Ошибка: ${error}`));
+      }
+    }
+  })
   return cardElement.generateCard();
 }
 
@@ -166,10 +189,7 @@ const popupWithConfirmation = new PopupWithConfirmation('.popup__card-del');
 popupWithConfirmation.setEventListeners();
 
 // попап для добавления новой карточки
-const popupWithFormCard = new PopupWithForm(
-  '.popup_new-card',
-  submitAddCardForm
-);
+const popupWithFormCard = new PopupWithForm('.popup_new-card', submitAddCardForm);
 popupWithFormCard.setEventListeners();
 
 // ВАЛИДАЦИЯ:
@@ -180,10 +200,7 @@ cardsValidation.enableValidation();
 const profileValidation = new FormValidator(validationConfig, formElement);
 profileValidation.enableValidation();
 
-const popupAvatarFormValidation = new FormValidator(
-  validationConfig,
-  popupAvatarForm
-);
+const popupAvatarFormValidation = new FormValidator(validationConfig, popupAvatarForm);
 popupAvatarFormValidation.enableValidation();
 
 // СЛУШАТЕЛИ

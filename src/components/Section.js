@@ -15,22 +15,6 @@ class Section {
     });
   }
 
-  // addItem(item, isInversed = false) {
-  //   if (isInversed) {
-  //     this._containerSelector.prepend(item);
-  //   } else {
-  //     this._containerSelector.append(item);
-  //   }
-  // }
-
-  // renderItems(cards) {
-  //   cards.forEach((item) => {
-  //     const element = this._renderer(item);
-  //     this.addItem(element);
-  //   })
-  // }
-
-
 }
 
 export default Section;

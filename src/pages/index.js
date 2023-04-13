@@ -11,6 +11,7 @@ import {
   avatarOpenButton,
   popupAvatarForm,
   popupAvatar,
+  changeButtonText
 } from '../utils/constants.js';
 
 import Section from '../components/Section.js';
@@ -48,15 +49,6 @@ const userInfo = new UserInfo({
   about: '.profile__who-is-this',
   avatar: '.profile__image',
 });
-
-// Улучшенный UX всех форм
-function changeButtonText(action, selector, text) {
-  if (action) {
-    document.querySelector(selector).textContent = "Сохранение...";
-  } else {
-    document.querySelector(selector).textContent = text;
-  }
-}
 
 // редактирование информации о пользователе
 const handleEditUserInfo = (info) => {

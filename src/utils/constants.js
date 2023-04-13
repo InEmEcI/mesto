@@ -1,46 +1,3 @@
-// import piter from '../images/piter_1.jpg';
-// import moskva from '../images/moskva_2.jpg';
-// import kazan from '../images/kazan_3.jpg';
-// import nizhniiNovgorod from '../images/nizhnii-novgorod_4.jpg';
-// import ekatirenburg from '../images/ekatirenburg_5.jpg';
-// import kaliningrad from '../images/kaliningrad_6.jpg';
-
-
-// // первые 6 карточек
-// export const initialCards = [
-
-//   {
-//     name: 'Калининград',
-//     link: kaliningrad
-//   },
-
-//   {
-//     name: 'Екатеринбург',
-//     link: ekatirenburg
-//   },
-
-//   {
-//     name: 'Нижний Новгород',
-//     link: nizhniiNovgorod
-//   },
-
-//   {
-//     name: 'Казань',
-//     link: kazan
-//   },
-
-//   {
-//     name: 'Москва',
-//     link: moskva
-//   },
-
-//   {
-//     name: 'Санкт-Петербург',
-//     link: piter
-//   }
-
-// ];
-
 export const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -91,3 +48,12 @@ export const cardImagePhoto = document.querySelector('.popup-card-image__photo')
 export const popupCardImage = document.querySelector('.popup-card-image');
 // подпись фотографии в попапе большой карточки
 export const popupCardImageFigcaption = document.querySelector('.popup-card-image__figcaption');
+
+// Улучшенный UX всех форм
+export function changeButtonText(action, selector, text) {
+  if (action) {
+    document.querySelector(selector).textContent = "Сохранение...";
+  } else {
+    document.querySelector(selector).textContent = text;
+  }
+}

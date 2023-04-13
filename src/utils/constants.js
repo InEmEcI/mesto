@@ -64,7 +64,7 @@ export const allPopups = document.querySelectorAll('.popup'); // Все попа
 export const popupCloseButtons = document.querySelectorAll('.popup__close'); // кнопки закрытия попапов
 
 // ПОПАП ЗАМЕНЫ АВАТАРА
-export const popupAvatar = '.popup__avatar'; // попа аватара
+export const popupAvatar = '.popup-avatar'; // попа аватара
 
 // ПОПАП ПРОФИЛЬ
 export const popupProfile = '.popup_profile'; // попап профиля

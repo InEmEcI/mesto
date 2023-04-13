@@ -185,7 +185,7 @@ const submitAddCardForm = (data) => {
 };
 
 // попап для подтвеждения удаления карточки
-const popupWithConfirmation = new PopupWithConfirmation('.popup__card-del');
+const popupWithConfirmation = new PopupWithConfirmation('.popup-card-del');
 popupWithConfirmation.setEventListeners();
 
 // попап для добавления новой карточки
